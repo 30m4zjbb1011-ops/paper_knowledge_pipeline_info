@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Paper Knowledge Pipeline handles Google Drive documents, parsing results, credentials, third-party processing, and access revocation.">
+  <meta name="color-scheme" content="light">
+  <title>Privacy policy | Paper Knowledge Pipeline</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202824;background:#f8f9f5;font-size:17px;line-height:1.65}
+    *{box-sizing:border-box}body{margin:0}a{color:#21583f;text-underline-offset:.2em}a:hover{text-decoration-thickness:2px}a:focus-visible{outline:3px solid #bb6834;outline-offset:5px}.wrap{max-width:820px;margin:auto;padding:0 28px}.skip{position:absolute;top:-80px;left:16px;padding:8px 12px;background:white}.skip:focus{top:10px}header{border-bottom:1px solid #d9dfd6}nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:23px 0;font-size:.88rem}.brand{font-weight:650;color:#202824;text-decoration:none}main{padding:64px 0 52px}.eyebrow{margin:0 0 12px;color:#586a5e;font-size:.78rem;font-weight:650;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.13;letter-spacing:-.045em;margin:0 0 18px}h2{font-size:1.28rem;line-height:1.35;margin:36px 0 12px;letter-spacing:-.015em}p{margin:0 0 16px}.notice{border-left:3px solid #bd6a38;padding:14px 20px;background:#f1f1e8;margin:28px 0}.notice p:last-child{margin-bottom:0}ol,ul{padding-left:1.35em}li{padding-left:.2em;margin:0 0 11px}strong{font-weight:650}.small{font-size:.9rem;color:#526056}code{font-size:.85em;overflow-wrap:anywhere}footer{border-top:1px solid #d9dfd6;padding:22px 0 30px;font-size:.83rem;color:#586a5e}footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}@media(max-width:520px){.wrap{padding:0 20px}nav{align-items:flex-start;font-size:.82rem;gap:14px}nav .brand{max-width:190px}main{padding:42px 0 36px}.notice{padding:13px 16px}h2{margin-top:30px}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="wrap"><nav aria-label="Main navigation"><a class="brand" href="index.html">Paper Knowledge Pipeline</a><a href="privacy.html" aria-current="page">Privacy policy</a></nav></div></header>
+  <div class="wrap">
+    <main id="main">
+      <p class="eyebrow">Application information</p>
+      <h1>Privacy policy</h1>
+      <p class="small">Last updated: <time datetime="2026-10-09">9 October 2026</time></p>
+      <p>Paper Knowledge Pipeline is a personal research utility. This policy describes the current workflow for retrieving selected research PDFs from Google Drive, parsing them with MinerU, reviewing the results, and storing outputs on Drive.</p>
+      <h2>Data accessed and why</h2>
+      <p>The workflow accesses selected PDF contents and the file and folder information needed to find, download, and organize those documents and their outputs. It processes extracted text, references, images, Markdown, JSON, and archives to build a reviewed personal research library.</p>
+      <div class="notice"><p><strong>Drive permission is broad.</strong> The configured Google OAuth scope is <code>https://www.googleapis.com/auth/drive</code>. It permits access beyond the designated pipeline folders. Restricting normal operation to those folders is an intended workflow boundary, not a folder-only OAuth permission.</p></div>
+      <h2>Where data goes</h2>
+      <ul>
+        <li><strong>Google Drive:</strong> holds source PDFs, raw parsing results, and reviewed outputs in the operator's designated folders.</li>
+        <li><strong>GitHub Actions:</strong> runs the manually triggered workflow, downloads selected files, and transfers files and results between services.</li>
+        <li><strong>MinerU API:</strong> receives selected PDFs for parsing and returns extracted content and associated files.</li>
+        <li><strong>Review:</strong> the operator and any assistant tools they choose to use may access the extracted content to repair it and separate Main and References Markdown. Using an external assistant can disclose that content to its service provider.</li>
+      </ul>
+      <p>These providers process data under their own terms and policies. This policy does not promise a particular provider retention period, deletion outcome, or absence of provider access. The implemented pipeline does not currently send content to Dify or invoke paid LLM processing.</p>
+      <h2>Credentials and access</h2>
+      <p>The operator stores Google OAuth credentials and the MinerU API token in GitHub Actions Secrets for use by the workflow. They are not part of these public information pages. Access to the repository, workflow, Secrets, and Drive folders should be limited to authorized people. No security measure can guarantee that unauthorized access will never occur.</p>
+      <h2>Storage, retention, and deletion</h2>
+      <p>Source documents, raw results, and reviewed outputs remain in Drive until the operator removes them. This workflow description does not specify an automatic deletion schedule. Workflow logs, temporary processing files, and provider-side copies may be subject to each platform's settings and retention practices.</p>
+      <p>To stop future access, remove the application's Google authorization using <a href="https://support.google.com/accounts/answer/13533235">Google's linked-app instructions</a>, and remove the relevant GitHub Actions Secrets. Stop any active workflow runs as needed. Revocation or removing Secrets does not erase documents or results already downloaded or stored.</p>
+      <p>Delete stored source files and outputs separately from Drive and other locations you control. Review GitHub and MinerU controls and policies for any copies retained by those services.</p>
+      <h2>This public website</h2>
+      <p>These static pages contain no sign-in flow, upload form, advertising, analytics scripts, or application cookies. Visiting them does not authorize Google Drive access or start document processing. The website host may process ordinary request information, such as an IP address and browser details, under its own privacy policy.</p>
+      <h2>Provider information</h2>
+      <ul>
+        <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a></li>
+        <li><a href="https://mineru.net/">MinerU website</a> for current service information and policies</li>
+      </ul>
+      <h2>Changes</h2>
+      <p>This page will need to be updated if the application's data access, providers, or workflow changes. The date above identifies this version.</p>
+    </main>
+  </div>
+  <footer><div class="wrap"><a href="index.html">Paper Knowledge Pipeline</a><span>Privacy policy</span></div></footer>
+</body>
+</html>
